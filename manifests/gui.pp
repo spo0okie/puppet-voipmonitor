@@ -13,7 +13,7 @@ class voipmonitor::gui {
     source  => 'puppet:///modules/voipmonitor/voipmonitor-gui-24.62-SVN.71.tar.gz',
   } ->
   exec {'install_voipmonitor_gui':
-    command => "tar -zxvf ./gui.tar.gz && cd voipmonitor-gui-* && cp -r . ${voipmonitor::guidir} && chown -R ${apache::param::user} ${voipmonitor::guidir}",
+    command => "tar -zxvf ./gui.tar.gz && cd voipmonitor-gui-* && cp -r . ${voipmonitor::guidir} && chown -R ${apache::params::user} ${voipmonitor::guidir}",
     cwd     => $voipmonitor::tmpdir,
     unless  => "test -f ${voipmonitor::guidir}/cdr.php",
     path    => '/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin',
